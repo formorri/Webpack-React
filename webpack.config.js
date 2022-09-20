@@ -1,17 +1,20 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let mode = "development";
-let target= "web";
+let target = "web";
 
 if (process.env.NODE_ENV === "production") {
     mode = "production";
-    target= "browserslist";
+    target = "browserslist";
 }
 
 module.exports = {
     //...
     mode: mode,
     target: target,
+    output: {
+        assetModuleFilename: "images/[hash][ext][query]"
+    },
     devtool: "source-map",
     devServer: {
         static: {
@@ -24,8 +27,19 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                type: "asset", //clones images to this public filepath
+            },
+            {
                 test: /\.(s[ac]|c)ss$/i, //supports sass,scss,css files
-                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: { publicPath: "" },
+                    },
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader"],
             },
             {
                 test: /\.jsx?$/,
@@ -37,7 +51,7 @@ module.exports = {
         ],
     },
     plugins: [new MiniCssExtractPlugin()],
-    resolve:{
+    resolve: {
         extensions: [".js", ".jsx"],
     }
 };
