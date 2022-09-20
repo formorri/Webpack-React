@@ -1,3 +1,5 @@
+import "./styles/index.scss";
+
 const recipe= {
     food: 15,
     water: 12,

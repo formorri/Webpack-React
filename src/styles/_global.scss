@@ -1,0 +1,9 @@
+@use "variables" as v;
+
+body{
+    background-color: v.$bg;
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
