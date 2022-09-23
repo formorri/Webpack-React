@@ -1,6 +1,59 @@
-.hero{
-    background: url(../images/about-background.webp);
-    background-size: cover;
-    background-position: center;
-    
+@use "colors" as *;
+@use "fonts" as *;
+@use "media-query" as *;
+@use "chip";
+
+.hero {
+    padding: 10rem 0 0 2rem;
+    &__text {
+        @include header-text;
+        padding-bottom: 1.5rem;
+        .keys {
+            color: $accent-color;
+            text-decoration: underline;
+        }
+
+        .cursor{
+            display: inline-block;
+            background-color: $accent-color;
+            color: transparent;
+            width: 8px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                background-color: $accent-color;
+            }
+
+            49% {
+                background-color: $accent-color;
+            }
+
+            50% {
+                background-color: transparent;
+            }
+
+            99% {
+                background-color: transparent;
+            }
+
+            100% {
+                background-color: $accent-color;
+            }
+        }
+    }
+
+    &__description{
+        h2{
+            @include hero-desc-text;
+        }
+        padding-bottom: 1rem;
+    }
+
+    &__chips{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -1rem;
+    }
 }

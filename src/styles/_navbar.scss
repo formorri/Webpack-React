@@ -1,0 +1,55 @@
+@use "colors" as *;
+@use "fonts" as *;
+@use "media-query" as *;
+
+.navbar{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: sticky;
+    width: 100vw;
+    &__container{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    &__icon{
+        @include navbar-logo;
+        color: $dark-color;
+        align-self: flex-start;
+    }
+
+    &__links{
+        display: flex;
+        align-self: flex-end;
+        gap: 1rem;
+        @include navbar-text;
+        &--default{
+            color: $dark-color;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: 0.3s;
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+        &--contained{
+            color: $white-color;
+            background: $dark-color;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+            border-radius: 3rem;
+            transition: 0.3s;
+            &:hover{
+                background: $accent-color;
+                color: $dark-color;
+                transform: scale(1.05);
+            }
+        }
+        
+    }
+}
+

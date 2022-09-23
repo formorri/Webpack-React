@@ -1,0 +1,117 @@
+$small: 640px;
+$medium: 960px;
+$large: 1200px;
+$xlarge: 1600px;
+$xxlarge: 2000px;
+
+
+// xs size
+$screen-xs-max: calc($small - 1px);;
+
+// uikit small
+$screen-sm-min: $small; 
+$screen-sm-max: calc($medium - 1px);
+
+// uikit medium
+$screen-md-min: $medium;
+$screen-md-max: calc($large - 1px);
+
+// uikit large
+$screen-lg-min: $large;
+$screen-lg-max: calc($xlarge - 1px);;
+
+// uikit xl
+$screen-xl-min: $xlarge;
+$screen-xl-max: calc($xxlarge - 1px);
+
+// XXL
+$screen-xxl-min: $xxlarge;
+
+
+// media devices
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+
+// media lesser than queries
+@mixin lt-sm {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin lt-md {
+  @media screen and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin lt-lg {
+  @media screen and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lt-xl {
+  @media screen and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+// media greater than queries
+@mixin gt-xs {
+  @media screen and (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @media screen and (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @media screen and (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @media screen and (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+@mixin gt-xl {
+  @media screen and (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+
