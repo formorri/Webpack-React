@@ -5,15 +5,27 @@
 
 .hero {
     padding: 10rem 0 0 2rem;
-    &__text {
+    width: auto;
+    height: 100vh;
+    position: relative;
+
+    &__container-text{
+        position: absolute;
+        z-index: 2;
+        width: 70%;
+    }
+
+
+    &__title {
         @include header-text;
         padding-bottom: 1.5rem;
+
         .keys {
             color: $accent-color;
             text-decoration: underline;
         }
 
-        .cursor{
+        .cursor {
             display: inline-block;
             background-color: $accent-color;
             color: transparent;
@@ -44,16 +56,24 @@
         }
     }
 
-    &__description{
-        h2{
+    &__description {
+        h2 {
             @include hero-desc-text;
         }
+
         padding-bottom: 1rem;
     }
 
-    &__chips{
+    &__chips {
         display: flex;
         flex-wrap: wrap;
         margin-left: -1rem;
+    }
+
+    &__threejs {
+        position: absolute;
+        top: -5rem;
+        right: -25rem;
+        height: 80rem;
     }
 }

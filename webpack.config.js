@@ -64,6 +64,13 @@ module.exports = {
                 }
             },
             {
+                test: /\.(gltf)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets//[name][ext][query]'
+                }
+            },
+            {
                 test: /\.(s[ac]|c)ss$/i, //supports sass,scss,css files
                 use: [
                     {

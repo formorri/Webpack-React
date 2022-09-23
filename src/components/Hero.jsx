@@ -1,6 +1,10 @@
-import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, Suspense } from "react";
 import $ from 'jquery';
+
+// Grid from Material UI
+import Grid2 from '@mui/material/Unstable_Grid2';
+
+// All Chip components
 import Chip from "./Chip";
 import apiHeroChip from "../chip/api-hero-chip.js";
 import designHeroChip from "../chip/design-hero-chip.js";
@@ -8,6 +12,12 @@ import frameworkHeroChip from "../chip/framework-hero-chip.js";
 import languageHeroChip from "../chip/language-hero-chip.js";
 import libraryHeroChip from "../chip/library-hero-chip.js";
 import platformHeroChip from "../chip/platform-hero-chip.js";
+
+// All Threejs components
+import { Canvas } from "@react-three/fiber";
+import Three from "./Three";
+import { OrbitControls } from "@react-three/drei";
+import RickMorty from "./Rnm"
 
 function createApiChips(apiHeroChip) {
     return (
@@ -60,6 +70,8 @@ function createPlatformChips(platformHeroChip) {
 
 
 const Hero = () => {
+
+    // typing effect
     var wordflick = function (ele, opts) {
         let defs = {
             "offset": 0,
@@ -100,41 +112,45 @@ const Hero = () => {
 
     return (
         <div className="hero">
-            <Grid2 container spacing={0} rowSpacing={1}>
-                <Grid2 md={9} xs={12}>
-                    <div className="hero__text">
-                        <h1>I design and develop</h1>
-                        <h1><span className="keys"></span><span className="cursor">.</span> websites</h1>
-                    </div>
-                    <div className="hero__description">
-                        <h2>Hi! My name is Lam Zi Xin a UI/UX designer slash front-end dev. This portfolio is designed on Adobe XD, Illustrator, Photoshop. The dev stack for this portfolio website includes React.js, SASS, GSAP, Three.js, Curtain.js and PWA.</h2>
-                    </div>
-                    <div className="hero__chips">
-                        {designHeroChip.map(createDesignChips)}
-                    </div>
-                    <div className="hero__chips">
-                        {languageHeroChip.map(createLanguageChips)}
-                    </div>
-                    <div className="hero__chips">
-                        {libraryHeroChip.map(createLibraryChips)}
-                    </div>
-                    <div className="hero__chips">
-                        {frameworkHeroChip.map(createFrameworkChips)}
-                    </div>
-                    <div className="hero__chips">
-                        {apiHeroChip.map(createApiChips)}
-                    </div>
-                    <div className="hero__chips">
-                        {platformHeroChip.map(createPlatformChips)}
-                    </div>
-                </Grid2>
-                <Grid2 md={4} xs={12}>
-                    <div className="hero__threejs">
-                    </div>
-                </Grid2>
-            </Grid2>
+            <div className="hero__container-text">
+
+                <div className="hero__title">
+                    <h1>I design and develop</h1>
+                    <h1><span className="keys"></span><span className="cursor">.</span> websites</h1>
+                </div>
+                <div className="hero__description">
+                    <h2>Hi! My name is Lam Zi Xin a UI/UX designer slash front-end dev. This portfolio is designed on Adobe XD, Illustrator, Photoshop. The dev stack for this portfolio website includes React.js, SASS, GSAP, Three.js, Curtain.js and PWA.</h2>
+                </div>
+                <div className="hero__chips">
+                    {designHeroChip.map(createDesignChips)}
+                </div>
+                <div className="hero__chips">
+                    {languageHeroChip.map(createLanguageChips)}
+                </div>
+                <div className="hero__chips">
+                    {libraryHeroChip.map(createLibraryChips)}
+                </div>
+                <div className="hero__chips">
+                    {frameworkHeroChip.map(createFrameworkChips)}
+                </div>
+                <div className="hero__chips">
+                    {apiHeroChip.map(createApiChips)}
+                </div>
+                <div className="hero__chips">
+                    {platformHeroChip.map(createPlatformChips)}
+                </div>
+            </div>
+            <Canvas className="hero__threejs">
+                <ambientLight intensity={0.5} />
+                <directionalLight position={[-2, 5, 2]} intensity={1} />
+                <OrbitControls enableZoom={false} />
+                <Suspense fallback={null}>
+                    <Three />
+                    {/* <RickMorty /> */}
+                </Suspense>
+            </Canvas>
         </div>
-    ) 
+    )
 }
 
 export default Hero
