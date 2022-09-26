@@ -128,7 +128,7 @@ const Hero = () => {
                     {apiHeroChip.map(createApiChips)}
                     {platformHeroChip.map(createPlatformChips)}
                 </div>
-            </div>
+            </div> 
             <Canvas className="hero__threejs">
                 <ambientLight intensity={0.5} />
                 <directionalLight position={[-2, 5, 2]} intensity={1} />
