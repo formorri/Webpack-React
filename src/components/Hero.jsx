@@ -113,7 +113,6 @@ const Hero = () => {
     return (
         <div className="hero">
             <div className="hero__container-text">
-
                 <div className="hero__title">
                     <h1>I design and develop</h1>
                     <h1><span className="keys"></span><span className="cursor">.</span> websites</h1>
@@ -123,20 +122,10 @@ const Hero = () => {
                 </div>
                 <div className="hero__chips">
                     {designHeroChip.map(createDesignChips)}
-                </div>
-                <div className="hero__chips">
                     {languageHeroChip.map(createLanguageChips)}
-                </div>
-                <div className="hero__chips">
                     {libraryHeroChip.map(createLibraryChips)}
-                </div>
-                <div className="hero__chips">
                     {frameworkHeroChip.map(createFrameworkChips)}
-                </div>
-                <div className="hero__chips">
                     {apiHeroChip.map(createApiChips)}
-                </div>
-                <div className="hero__chips">
                     {platformHeroChip.map(createPlatformChips)}
                 </div>
             </div>
@@ -145,7 +134,7 @@ const Hero = () => {
                 <directionalLight position={[-2, 5, 2]} intensity={1} />
                 <OrbitControls enableZoom={false} />
                 <Suspense fallback={null}>
-                    <Three />
+                    <Three className="hero__asset"/>
                     {/* <RickMorty /> */}
                 </Suspense>
             </Canvas>

@@ -4,21 +4,18 @@
 @use "chip";
 
 .hero {
-    padding: 10rem 0 0 2rem;
     width: auto;
-    height: 100vh;
     position: relative;
+    height: auto;
 
-    &__container-text{
+
+    &__container-text {
         position: absolute;
         z-index: 2;
-        width: 70%;
     }
-
 
     &__title {
         @include header-text;
-        padding-bottom: 1.5rem;
 
         .keys {
             color: $accent-color;
@@ -29,7 +26,6 @@
             display: inline-block;
             background-color: $accent-color;
             color: transparent;
-            width: 8px;
             animation: blink 1s infinite;
         }
 
@@ -57,23 +53,87 @@
     }
 
     &__description {
+        width: auto;
+
         h2 {
             @include hero-desc-text;
         }
-
-        padding-bottom: 1rem;
     }
 
     &__chips {
         display: flex;
         flex-wrap: wrap;
-        margin-left: -1rem;
     }
 
     &__threejs {
         position: absolute;
-        top: -5rem;
-        right: -25rem;
-        height: 80rem;
+
+    }
+}
+
+@include lt-md {
+    .hero {
+        padding: 5rem 0rem 0 2rem;
+
+        &__container-text {
+            width: auto;
+            padding-right: 1rem;
+        }
+
+        &__title {
+            padding-bottom: 1.5rem;
+
+            .cursor {
+                width: 8px;
+            }
+        }
+
+        &__description {
+            padding-bottom: 1rem;
+        }
+
+        &__chips {
+            margin-left: -1rem;
+        }
+
+        &__threejs {
+            top: 0rem;
+            height: 100rem;
+        }
+
+        &__asset {
+            height: 50rem;
+        }
+    }
+}
+
+@include gt-md {
+    .hero {
+        padding: 10rem 0 0 2rem;
+
+        &__container-text {
+            width: 80%;
+        }
+
+        &__title {
+            padding-bottom: 1.5rem;
+
+            .cursor {
+                width: 8px;
+            }
+        }
+
+        &__description {
+            padding-bottom: 1rem;
+        }
+
+        &__chips {
+            margin-left: -1rem;
+        }
+
+        &__threejs {
+            top: -1rem;
+            right: -25rem;
+        }
     }
 }
