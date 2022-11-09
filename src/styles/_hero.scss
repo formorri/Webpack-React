@@ -5,9 +5,8 @@
 
 .hero {
     width: auto;
-    position: relative;
     height: auto;
-
+    position: relative;
 
     &__container-text {
         position: absolute;
@@ -60,14 +59,8 @@
         }
     }
 
-    &__chips {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     &__threejs {
         position: absolute;
-
     }
 }
 
@@ -96,20 +89,21 @@
             margin-left: -1rem;
         }
 
+        &__threebox{
+            height: 40rem;
+        }
+    
         &__threejs {
-            top: 0rem;
-            height: 100rem;
+            top: 10rem;
+
         }
 
-        &__asset {
-            height: 50rem;
-        }
     }
 }
 
 @include gt-md {
     .hero {
-        padding: 10rem 0 0 2rem;
+        padding: 6rem 0 0 2rem;
 
         &__container-text {
             width: 80%;
@@ -131,9 +125,13 @@
             margin-left: -1rem;
         }
 
+        &__threebox{
+            height: 50rem;
+        }
+    
         &__threejs {
-            top: -1rem;
-            right: -25rem;
+            top: -8rem;
+            right: -18rem;
         }
     }
 }

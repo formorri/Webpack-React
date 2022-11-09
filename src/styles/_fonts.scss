@@ -52,9 +52,9 @@
     font-family: 'Basement Grotesque Roman';
     font-weight: 800;
     margin: 0;
-    $small: 20px;
-    $medium: 25px;
-    $large: 30px;
+    $small: 16px;
+    $medium: 18px;
+    $large: 20px;
     $line-height-multiplier: 1.5;
     @include lt-md {
         font-size: $small;
@@ -96,13 +96,38 @@
     }
 }
 
+@mixin stepper-text {
+    font-family: 'Helvetica Neue';
+    font-weight: normal;
+    margin: 0;
+    $small: 16px;
+    $medium: 18px;
+    $large: 20px;
+    $line-height-multiplier: 1.5;
+    @include lt-md {
+        font-size: $small;
+        line-height: calc($line-height-multiplier * $small);  
+    }
+
+    @include gt-md {
+        font-size: $medium;
+        line-height: calc($line-height-multiplier * $medium);  
+    }
+
+    @include gt-lg {
+        font-size: $large;
+        line-height: calc($line-height-multiplier * $large);  
+    }
+}
+
+
 @mixin header-text {
     font-family: 'Basement Grotesque Roman';
     font-weight: 800;
     margin: 0;
     $small: 30px;
-    $medium: 40px;
-    $large: 50px;
+    $medium: 35px;
+    $large: 40px;
     $line-height-multiplier: 2;
     @include lt-md {
         font-size: $small;
@@ -174,8 +199,8 @@
     font-weight: 800;
     margin: 0;
     $small: 25px;
-    $medium: 70px;
-    $large: 70px;
+    $medium: 50px;
+    $large: 60px;
     $line-height-multiplier: 1.5;
     @include lt-md {
         font-size: $small;
@@ -197,9 +222,9 @@
     font-family: 'Helvetica Neue';
     font-weight: bold;
     margin: 0;
-    $small: 16px;
-    $medium: 18px;
-    $large: 20px;
+    $small: 14px;
+    $medium: 16px;
+    $large: 18px;
     $line-height-multiplier: 1.5;
     @include lt-md {
         font-size: $small;
@@ -219,12 +244,61 @@
 
 @mixin project-desc-desc {
     font-family: 'Helvetica Neue';
-    font-weight: normal;
+    font-weight: 100;
     margin: 0;
-    $small: 16px;
-    $medium: 18px;
-    $large: 20px;
-    $line-height-multiplier: 1.5;
+    $small: 12px;
+    $medium: 14px;
+    $large: 16px;
+    $line-height-multiplier: 1.2;
+    @include lt-md {
+        font-size: $small;
+        line-height: calc($line-height-multiplier * $small);  
+    }
+
+    @include gt-md {
+        font-size: $medium;
+        line-height: calc($line-height-multiplier * $medium);  
+    }
+
+    @include gt-lg {
+        font-size: $large;
+        line-height: calc($line-height-multiplier * $large);  
+    }
+}
+
+@mixin tooltip-text {
+    font-family: 'Helvetica Neue';
+    font-weight: 100;
+    margin: 0;
+    $small: 12px;
+    $medium: 14px;
+    $large: 16px;
+    $line-height-multiplier: 1.2;
+    @include lt-md {
+        font-size: $small;
+        line-height: calc($line-height-multiplier * $small);  
+    }
+
+    @include gt-md {
+        font-size: $medium;
+        line-height: calc($line-height-multiplier * $medium);  
+    }
+
+    @include gt-lg {
+        font-size: $large;
+        line-height: calc($line-height-multiplier * $large);  
+    }
+}
+
+
+@mixin showcase-text {
+    font-family: 'Basement Grotesque Roman';
+    font-weight: 800;
+    margin: 0;
+    $small: 40px;
+    $medium: 50px;
+    $large: 90px;
+    $line-height-multiplier: 2;
     @include lt-md {
         font-size: $small;
         line-height: calc($line-height-multiplier * $small);  

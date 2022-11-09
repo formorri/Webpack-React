@@ -1,7 +1,7 @@
 // import {Router, Link} from "react-router-dom";
 const Navbar = () => {
     return (
-        <div className="navbar">
+        <nav className="navbar">
             <div className="navbar__container">
                 <div className="navbar__icon">
                     <h2>Lam</h2>
@@ -12,7 +12,7 @@ const Navbar = () => {
                     {/* <Router exact to="/about" component={Showcase}/> */}
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

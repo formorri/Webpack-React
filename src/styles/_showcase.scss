@@ -1,0 +1,140 @@
+@use "colors" as *;
+@use "fonts" as *;
+@use "media-query" as *;
+
+.wrapper {
+    height: 100vh;
+    .scrolling-wrapper {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      .scroll-item {
+        width: 100vh;
+        height: 100vh;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: top;
+        margin-right: 10rem;
+        background-color: aqua;
+      }
+    }
+  }
+
+.showcase {
+    margin-top: -14rem;
+
+    @mixin showcase-banner {
+        @include showcase-text;
+        white-space: nowrap;
+        text-transform: uppercase;
+        position: relative;
+    }
+
+    &__banner-1 {
+        h2 {
+            @include showcase-banner;
+            color: $dark-color;
+            animation: banner1 8s linear infinite alternate;
+        }
+
+        @keyframes banner1 {
+            from {
+                left: 50rem;
+            }
+
+            to {
+                left: -50rem;
+            }
+        }
+    }
+
+    &__banner-2 {
+        h2 {
+            @include showcase-banner;
+            margin-top: -4rem;
+            color: $accent-color;
+            animation: banner2 8s linear infinite alternate;
+        }
+
+        @keyframes banner2 {
+            from {
+                right: 50rem;
+            }
+
+            to {
+                right: -50rem;
+            }
+        }
+    }
+
+    &__content {
+        background-image: url(../assets/images/showcase-background.png);
+        position: relative;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 5rem 1rem;
+
+        &--mockup {
+            $top: 2rem;
+            position: relative;
+
+            .showcase-item {
+                position: absolute;
+                width: 35rem;
+                top: calc(1.5rem + $top);
+                left: 5rem;
+            }
+
+            .showcase-mockup {
+                position: absolute;
+                width: 45rem;
+                top: $top;
+            }
+        }
+
+        &--text {
+            position: relative;
+            right: 6rem;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: right;
+            justify-content: flex-end;
+            padding-left: 30%;
+
+            .showcase-text {
+                @include title-text;
+                mix-blend-mode: difference;
+                color: $accent-color;
+                text-transform: uppercase;
+            }
+
+            .showcase-chips {
+                justify-content: flex-end;
+                margin-right: -1rem;
+                width: 80%;
+            }
+
+            .showcase-description {
+                color: $dark-color;
+                width: 50%;
+                white-space: inherit;
+                
+                h2 {
+                    @include project-title-desc;
+                    text-transform: uppercase;
+                }
+                
+                li {
+                    @include project-desc-desc;
+                    list-style: none;
+                }
+            }
+
+        }
+    }
+
+
+}
